@@ -13,14 +13,14 @@ public sealed class Validator : IValidator
     private void RaiseRuleGroupChangedEvent(RuleGroupChangedEventArgs rulesChangedEventArgs)
         => RuleGroupChangedEvent?.Invoke(this, rulesChangedEventArgs);
 
-    private readonly ObservableCollection<RuleGroup> rulesCollection;
+    private readonly ObservableCollection<RuleGroup> _ruleGroupCollection;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Validator"/> class.
     /// Used only by <see cref="ValidatorBuilder"/>.
     /// </summary>
-    /// <param name="rules"></param>
-    internal Validator(ObservableCollection<RuleGroup> rules) => rulesCollection = rules;
+    /// <param name="ruleGroupCollection"></param>
+    internal Validator(ObservableCollection<RuleGroup> ruleGroupCollection) => _ruleGroupCollection = ruleGroupCollection;
 
     /// <summary>
     /// Rules for a given key.
@@ -30,12 +30,12 @@ public sealed class Validator : IValidator
     /// <exception cref="KeyNotFoundException"></exception>
     public RuleGroup RulesFor(string? key)
     {
-        RuleGroup? rules = rulesCollection.FirstOrDefault(x => x.Key == key);
+        RuleGroup? ruleGroup = _ruleGroupCollection.FirstOrDefault(x => x.Key == key);
 
-        if (rules is null)
+        if (ruleGroup is null)
             throw new KeyNotFoundException($"The informed key {key} is missing.");
 
-        return rules;
+        return ruleGroup;
     }
 
     /// <summary>
@@ -46,14 +46,14 @@ public sealed class Validator : IValidator
     /// <exception cref="RuleGroupNullException"></exception>
     public void ValidateFor(string? key, string? valueToValidade)
     {
-        RuleGroup rules = RulesFor(key);
+        RuleGroup ruleGroup = RulesFor(key);
 
-        if (rules.Rules is null)
-            throw new RuleGroupNullException(key: key, message: $"The validator rules for '{key}' is null.");
+        if (ruleGroup.Rules is null)
+            throw new RuleGroupNullException(key, $"The validator rules for '{key}' is null.");
 
-        RaiseRuleGroupChangedEvent(new RuleGroupChangedEventArgs(key, rules));
+        RaiseRuleGroupChangedEvent(new RuleGroupChangedEventArgs(key, ruleGroup));
 
-        foreach (IRule rule in rules.Rules)
+        foreach (IRule rule in ruleGroup.Rules)
             _ = rule.Validate(valueToValidade);
     }
 }
