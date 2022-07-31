@@ -19,7 +19,7 @@ public interface IRule
     /// Validates a string value through the predicate.
     /// </summary>
     /// <param name="s">The <see cref="string"/> value to be evaluated</param>
-    /// <returns></returns>
+    /// <returns><see langword="true"/> if it's a valid value, otherwise, returns <see langword="false"/></returns>
     bool? Validate(string? s);
 
     /// <summary>
