@@ -1,0 +1,43 @@
+﻿namespace ValidatorBuilder.Core;
+
+using ValidatorBuilder.Core.Mvvm;
+
+/// <summary>
+/// A collection of rules to be applied to a given value, identified by a unique key.
+/// </summary>
+public sealed class RuleGroup : ObservableBase
+{
+    private string? _key;
+    private string? _header;
+    private ObservableCollection<IRule> _rules = new();
+
+    /// <summary>
+    /// Gets or sets a unique key that will be used to get or set the rules to apply to the given value.
+    /// </summary>
+    public string? Key { get => _key; set => SetProperty(ref _key, value); }
+
+    /// <summary>
+    /// Gets or sets the message that will be displayed in the UI, describing the group of rules to be applied.
+    /// </summary>
+    public string? Header { get => _header; set => SetProperty(ref _header, value); }
+
+    /// <summary>
+    /// Gets or sets the list of rules.
+    /// </summary>
+    public ObservableCollection<IRule> Rules { get => _rules; set => SetProperty(ref _rules, value); }
+
+    /// <summary>
+    /// Returns <c>True</c> if all rules were successfully evaluated, otherwise, returns <c>False</c>.
+    /// </summary>
+    /// <returns>A boolean value.</returns>
+    /// <exception cref="RulesNullException"></exception>
+    public bool AreValid()
+    {
+        if (Rules is null)
+            throw new RulesNullException(
+                key: Key,
+                message: "Rules is null in AreValid() method.");
+
+        return !Rules.Any(r => r.IsValid == false);
+    }
+}
