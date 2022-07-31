@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<Authors>Fernando Stockler de Lima</Authors>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<IncludeSymbols>True</IncludeSymbols>
+	<PackageTags>wpf; mvvm; builder; validation; password-validator; visual-hints;</PackageTags>
+	<Copyright>Fernando Stockler de Lima</Copyright>
+	<Description>ValidatorBuilder constructs a validator object that can be used in a viewmodel to control input via events, such as TextBox.TextChangedEvent, and display compliance with validation rules on every keystroke. Example: checking password rules.</Description>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Title>Build a validator for inputs with visual hints.</Title>
+  </PropertyGroup>
+
+	<ItemGroup>
+	<Using Include="System.Collections.ObjectModel" />
+	<Using Include="System.Runtime.Serialization" />
+	<Using Include="System.ComponentModel" />
+	<Using Include="System.Runtime.CompilerServices" />
+</ItemGroup>
+
+</Project>
