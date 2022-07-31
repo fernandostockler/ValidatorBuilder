@@ -21,7 +21,7 @@ public class ValidatorBuilder : IRuleStage, IRulesForStage
     /// </summary>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public Validator Build() => new Validator(_ruleGroup);
+    public Validator Build() => new(_ruleGroup);
 
     /// <summary>
     /// 

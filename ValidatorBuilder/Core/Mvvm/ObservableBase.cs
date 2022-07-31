@@ -11,7 +11,7 @@ public abstract class ObservableBase : INotifyPropertyChanged
     /// <summary>
     /// Raises the <see cref="PropertyChanged"/> event.
     /// </summary>
-    /// <param name="e"></param>
+    /// <param name="e">A <see cref="PropertyChangedEventArgs"/>.</param>
     protected virtual void NotifyPropertyChanged(PropertyChangedEventArgs e)
         => PropertyChanged?.Invoke(this, e);
 

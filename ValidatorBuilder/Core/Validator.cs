@@ -26,7 +26,7 @@ public sealed class Validator : IValidator
     /// Rules for a given key.
     /// </summary>
     /// <param name="key"></param>
-    /// <returns></returns>
+    /// <returns></returns> 
     /// <exception cref="KeyNotFoundException"></exception>
     public RuleGroup RulesFor(string? key)
     {
