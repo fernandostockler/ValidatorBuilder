@@ -1,11 +1,9 @@
 ﻿namespace ValidatorBuilder.Core;
 
-using ValidatorBuilder.Core.Mvvm;
-
 /// <summary>
 /// The Rule class represents a rule that will be applied to a given value.
 /// </summary>
-public class Rule : ObservableBase, IRule
+public class Rule : Mvvm.ObservableBase, IRule
 {
     private string? _description;
     private Predicate<string?>? _filter;

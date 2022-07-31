@@ -1,14 +1,13 @@
 ﻿namespace ValidatorBuilder;
 
-using ValidatorBuilder.Core;
 
 /// <summary>
-/// 
+///
 /// </summary>
 public interface IRuleStage
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="message"></param>
     /// <param name="predicate"></param>
@@ -16,7 +15,7 @@ public interface IRuleStage
     IRuleStage Rule(string? message, Predicate<string?>? predicate);
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="key"></param>
     /// <param name="message"></param>
@@ -24,7 +23,7 @@ public interface IRuleStage
     IRuleStage RulesFor(string? key, string? message);
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <returns></returns>
     Validator Build();

@@ -42,6 +42,7 @@
 		<Using Include="System.Runtime.Serialization" />
 		<Using Include="System.ComponentModel" />
 		<Using Include="System.Runtime.CompilerServices" />
+		<Using Include ="ValidatorBuilder.Core"/>
 	</ItemGroup>
 
 </Project>

@@ -1,11 +1,9 @@
 ﻿namespace ValidatorBuilder.Core;
 
-using ValidatorBuilder.Core.Mvvm;
-
 /// <summary>
 /// A collection of rules to be applied to a given value, identified by a unique key.
 /// </summary>
-public sealed class RuleGroup : ObservableBase
+public sealed class RuleGroup : Mvvm.ObservableBase
 {
     private string? _key;
     private string? _header;
@@ -25,6 +23,18 @@ public sealed class RuleGroup : ObservableBase
     /// Gets or sets the list of rules.
     /// </summary>
     public ObservableCollection<IRule> Rules { get => _rules; set => SetProperty(ref _rules, value); }
+
+    /// <summary>
+    /// Creates a new instance of the <see cref="RuleGroup"/> type that represents a collection of rules
+    /// to be applied to a given value, identified by a unique key.
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="header"></param>
+    public RuleGroup(string? key, string? header)
+    {
+        Key = key;
+        Header = header;
+    }
 
     /// <summary>
     /// Returns <c>True</c> if all rules were successfully evaluated, otherwise, returns <c>False</c>.
