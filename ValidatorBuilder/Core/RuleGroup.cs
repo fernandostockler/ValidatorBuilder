@@ -30,11 +30,11 @@ public sealed class RuleGroup : ObservableBase
     /// Returns <c>True</c> if all rules were successfully evaluated, otherwise, returns <c>False</c>.
     /// </summary>
     /// <returns>A boolean value.</returns>
-    /// <exception cref="RulesNullException"></exception>
+    /// <exception cref="RuleGroupNullException"></exception>
     public bool AreValid()
     {
         if (Rules is null)
-            throw new RulesNullException(
+            throw new RuleGroupNullException(
                 key: Key,
                 message: "Rules is null in AreValid() method.");
 
