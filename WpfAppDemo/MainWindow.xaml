@@ -19,9 +19,10 @@
                     x:Name="Glyph"
                     VerticalAlignment="Bottom"
                     FontFamily="Segoe MDL2 Assets"
+                    FontWeight="Bold"
                     Foreground="Red"
                     Text="&#xE894;  "
-                    TextWrapping="Wrap" FontWeight="Bold" />
+                    TextWrapping="Wrap" />
                 <TextBlock VerticalAlignment="Top" Text="{Binding Description}" />
             </StackPanel>
             <DataTemplate.Triggers>
@@ -36,94 +37,95 @@
     <Window.DataContext>
         <local:MainWindowViewModel />
     </Window.DataContext>
-    <Grid>
-        <Border
-            Width="300"
-            Margin="0,20,0,20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center">
-            <StackPanel>
-                <StackPanel.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="5" Opacity="0.6" />
-                </StackPanel.Effect>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock
-                        Margin="0,0,10,0"
-                        FontFamily="Segoe MDL2 Assets"
-                        FontSize="48"
-                        Foreground="#FF0F0F0F"
-                        Text="&#xEF58;" />
-                    <TextBlock
-                        Margin="0,0,0,20"
-                        FontSize="30"
-                        Foreground="#FF0F0F0F"
-                        Text="Login" />
-                </StackPanel>
-
+    <Border
+        Width="300"
+        Margin="0,20,0,20"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <StackPanel>
+            <StackPanel.Effect>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    Opacity="0.6"
+                    ShadowDepth="5" />
+            </StackPanel.Effect>
+            <StackPanel Orientation="Horizontal">
                 <TextBlock
-                    Margin="0,15,0,0"
-                    Padding="0,0,0,4"
-                    FontWeight="Bold"
+                    Margin="0,0,10,0"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="48"
                     Foreground="#FF0F0F0F"
-                    Text="Email : " />
-
-                <TextBox
-                    x:Name="LoginEmailTextBox"
-                    Height="{Binding ElementName=LoginPasswordBox, Path=ActualHeight}"
-                    Padding="2,2,2,2"
-                    Background="{x:Null}"
-                    BorderBrush="#FFCFCFC8"
-                    FontSize="14"
-                    Text=""
-                    d:Text="myemail@mail.com"
-                    TextChanged="LoginEmailTextBox_TextChanged" />
-
+                    Text="&#xEF58;" />
                 <TextBlock
-                    Margin="0,20,0,0"
-                    Padding="0,0,0,4"
-                    FontWeight="Bold"
+                    Margin="0,0,0,20"
+                    FontSize="30"
                     Foreground="#FF0F0F0F"
-                    Text="Password : " />
-
-                <PasswordBox
-                    x:Name="LoginPasswordBox"
-                    Height="Auto"
-                    Padding="2,2,2,2"
-                    Background="{x:Null}"
-                    BorderBrush="#FFCFCFC8"
-                    FontSize="14"
-                    Password=""
-                    d:Password="meupassword"
-                    PasswordChanged="LoginPasswordBox_PasswordChanged" />
-
-                <TextBlock
-                    x:Name="ValidationInfoTextBlock"
-                    Margin="0,20,0,10"
-                    FontSize="14"
-                    Text="{Binding Header}" />
-
-                <ItemsControl
-                    x:Name="ValidatorViewer"
-                    IsTabStop="False"
-                    ItemTemplate="{DynamicResource ValidatorViewerItemTemplate}"
-                    ItemsSource="{Binding RuleGroup.Rules}" />
-
-                <Button
-                    x:Name="LoginButton"
-                    Grid.Column="1"
-                    Width="120"
-                    Height="30"
-                    Margin="0,20,0,0"
-                    HorizontalAlignment="Right"
-                    Background="{x:Null}"
-                    BorderBrush="#FFD4D6C4"
-                    BorderThickness="2,2,2,2"
-                    Click="LoginButton_Click"
-                    Content="Login"
-                    FontWeight="Bold"
-                    Foreground="#FFD4D6C4" />
-
+                    Text="Login" />
             </StackPanel>
-        </Border>
-    </Grid>
+
+            <TextBlock
+                Margin="0,15,0,0"
+                Padding="0,0,0,4"
+                FontWeight="Bold"
+                Foreground="#FF0F0F0F"
+                Text="Email : " />
+
+            <TextBox
+                x:Name="LoginEmailTextBox"
+                Height="{Binding ElementName=LoginPasswordBox, Path=ActualHeight}"
+                Padding="2,2,2,2"
+                d:Text="myemail@mail.com"
+                Background="{x:Null}"
+                BorderBrush="#FFCFCFC8"
+                FontSize="14"
+                Text=""
+                TextChanged="LoginEmailTextBox_TextChanged" />
+
+            <TextBlock
+                Margin="0,20,0,0"
+                Padding="0,0,0,4"
+                FontWeight="Bold"
+                Foreground="#FF0F0F0F"
+                Text="Password : " />
+
+            <PasswordBox
+                x:Name="LoginPasswordBox"
+                Height="Auto"
+                Padding="2,2,2,2"
+                d:Password="meupassword"
+                Background="{x:Null}"
+                BorderBrush="#FFCFCFC8"
+                FontSize="14"
+                Password=""
+                PasswordChanged="LoginPasswordBox_PasswordChanged" />
+
+            <TextBlock
+                x:Name="ValidationInfoTextBlock"
+                Margin="0,20,0,10"
+                FontSize="14"
+                Text="{Binding Header}" />
+
+            <ItemsControl
+                x:Name="ValidatorViewer"
+                IsTabStop="False"
+                ItemTemplate="{DynamicResource ValidatorViewerItemTemplate}"
+                ItemsSource="{Binding RuleGroup.Rules}" />
+
+            <Button
+                x:Name="LoginButton"
+                Grid.Column="1"
+                Width="120"
+                Height="30"
+                Margin="0,20,0,0"
+                HorizontalAlignment="Right"
+                Background="{x:Null}"
+                BorderBrush="#FFD4D6C4"
+                BorderThickness="2,2,2,2"
+                Click="LoginButton_Click"
+                Content="Login"
+                FontWeight="Bold"
+                Foreground="#FFD4D6C4" />
+
+        </StackPanel>
+    </Border>
 </Window>

@@ -12,14 +12,14 @@ public class MainWindowViewModel : ViewModelBase
     const int EmailMaxLength = 100;
     const string EmailPattern = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
 
+    static readonly Predicate<string?> EmailMinLenghtFilter = x => x?.Length >= EmailMinLength;
+    static readonly Predicate<string?> EmailMaxLenghtFilter = x => x?.Length <= EmailMaxLength;
+    static readonly Predicate<string?> EmailFormatFilter = x => x is not null && new Regex(EmailPattern).Match(x).Success;
+
     const string Password = "Password";
 
     const int PasswordMinLength = 8;
     const int PasswordMaxLength = 16;
-
-    static readonly Predicate<string?> EmailMinLenghtFilter = x => x?.Length >= EmailMinLength;
-    static readonly Predicate<string?> EmailMaxLenghtFilter = x => x?.Length <= EmailMaxLength;
-    static readonly Predicate<string?> EmailFormatFilter = x => x is not null && new Regex(EmailPattern).Match(x).Success;
 
     static readonly Predicate<string?> PasswordMinLenghtFilter = x => x?.Length >= PasswordMinLength;
     static readonly Predicate<string?> PasswordMaxLenghtFilter = x => x?.Length <= PasswordMaxLength;
@@ -43,7 +43,7 @@ public class MainWindowViewModel : ViewModelBase
                 .Rule("Must be capitalized.length", PasswordCapsFilter)
                 .Rule("Must contain symbol.", PasswordSymbolFilter)
 
-            .RulesFor("reset",string.Empty)
+            .RulesFor("reset", string.Empty)
         .Build();
 
     RuleGroup? _ruleGroup;

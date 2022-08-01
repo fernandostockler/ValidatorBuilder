@@ -5,9 +5,9 @@
 /// </summary>
 public class Rule : Mvvm.ObservableBase, IRule
 {
-    private string? _description;
-    private Predicate<string?>? _filter;
-    private bool? _isValid;
+    bool? _isValid;
+    string? _description;
+    Predicate<string?>? _filter;
 
     /// <summary>
     /// Creates a new instance of type <see cref="Rule"/>.

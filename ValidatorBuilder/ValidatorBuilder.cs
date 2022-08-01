@@ -5,10 +5,10 @@
 /// </summary>
 public class ValidatorBuilder : IRuleStage, IRulesForStage
 {
-    private string? currentKey;
-    private readonly ObservableCollection<RuleGroup> RuleGroupCollection = new();
+    string? currentKey;
+    readonly ObservableCollection<RuleGroup> RuleGroupCollection = new();
 
-    private ValidatorBuilder() { }
+    ValidatorBuilder() { }
 
     /// <summary>
     /// Creates a new instance of <see cref="ValidatorBuilder"/>.

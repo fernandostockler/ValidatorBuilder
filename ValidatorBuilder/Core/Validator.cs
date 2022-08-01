@@ -10,17 +10,17 @@ public sealed class Validator : IValidator
     /// </summary>
     public event EventHandler<RuleGroupChangedEventArgs>? RuleGroupChangedEvent;
 
-    private void RaiseRuleGroupChangedEvent(RuleGroupChangedEventArgs rulesChangedEventArgs)
+    void RaiseRuleGroupChangedEvent(RuleGroupChangedEventArgs rulesChangedEventArgs)
         => RuleGroupChangedEvent?.Invoke(this, rulesChangedEventArgs);
 
-    private readonly ObservableCollection<RuleGroup> _ruleGroupCollection;
+    readonly ObservableCollection<RuleGroup> RuleGroupCollection;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Validator"/> class.
     /// Used only by <see cref="ValidatorBuilder"/>.
     /// </summary>
     /// <param name="ruleGroupCollection"></param>
-    internal Validator(ObservableCollection<RuleGroup> ruleGroupCollection) => _ruleGroupCollection = ruleGroupCollection;
+    internal Validator(ObservableCollection<RuleGroup> ruleGroupCollection) => RuleGroupCollection = ruleGroupCollection;
 
     /// <summary>
     /// Represents a collection of validation rules related to a given key.
@@ -30,7 +30,7 @@ public sealed class Validator : IValidator
     /// <exception cref="KeyNotFoundException"></exception>
     public RuleGroup GetRulesFor(string? key)
     {
-        RuleGroup? ruleGroup = _ruleGroupCollection.FirstOrDefault(x => x.Key == key);
+        RuleGroup? ruleGroup = RuleGroupCollection.FirstOrDefault(x => x.Key == key);
 
         if (ruleGroup is null)
             throw new KeyNotFoundException($"The informed key {key} is missing.");
