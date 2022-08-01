@@ -27,7 +27,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="extensions.ico" />
+    <Content Include="extensions .ico" />
   </ItemGroup>
 
   <ItemGroup>
