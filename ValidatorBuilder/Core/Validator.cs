@@ -28,7 +28,7 @@ public sealed class Validator : IValidator
     /// <param name="key">A string that identifies a collection of validation rules.</param>
     /// <returns>A <see cref="RuleGroup"/> containing all validation rules associated with a given key.</returns>
     /// <exception cref="KeyNotFoundException"></exception>
-    public RuleGroup RulesFor(string? key)
+    public RuleGroup GetRulesFor(string? key)
     {
         RuleGroup? ruleGroup = _ruleGroupCollection.FirstOrDefault(x => x.Key == key);
 
@@ -46,7 +46,7 @@ public sealed class Validator : IValidator
     /// <exception cref="RuleGroupNullException">If Rules in RuleGroup is <c>null</c>.</exception>
     public void ValidateFor(string? key, string? valueToValidade)
     {
-        RuleGroup ruleGroup = RulesFor(key);
+        RuleGroup ruleGroup = GetRulesFor(key);
 
         if (ruleGroup.Rules is null)
             throw new RuleGroupNullException(key, $"The validator rules for '{key}' is null.");

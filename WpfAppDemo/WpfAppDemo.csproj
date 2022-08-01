@@ -5,12 +5,15 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-	<ImplicitUsings>enable</ImplicitUsings>
-	<Authors>Fernando Stockler de Lima</Authors>
+	  <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ValidatorBuilder\ValidatorBuilder.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Using Include="System.ComponentModel"/>
+		<Using Include ="System.Runtime.CompilerServices"/>
+	</ItemGroup>
 </Project>

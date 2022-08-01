@@ -15,7 +15,7 @@ public interface IValidator
     /// </summary>
     /// <param name="key"></param>
     /// <returns>A <see cref="RuleGroup"/> object.</returns>
-    RuleGroup RulesFor(string? key);
+    RuleGroup GetRulesFor(string? key);
 
     /// <summary>
     /// Validates a string value through the predicate associated with the key.
