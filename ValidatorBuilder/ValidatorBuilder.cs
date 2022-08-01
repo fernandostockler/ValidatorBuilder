@@ -31,7 +31,7 @@ public class ValidatorBuilder : IRuleStage, IRulesForStage
     /// <inheritdoc/>
     public IRuleStage RulesFor(string? key, string? header)
     {
-        RuleGroup? ruleGroup = RuleGroupCollection.FirstOrDefault(r => r.Key == key);
+        RuleGroup? ruleGroup = RuleGroupCollection.FirstOrDefault(x => x.Key == key);
         RuleGroupCollection.Add(new(key, header));
         currentKey = key;
 
