@@ -44,6 +44,7 @@ public class MainWindowViewModel : ViewModelBase
                 .Rule("Must contain symbol.", PasswordSymbolFilter)
 
             .RulesFor("reset", string.Empty)
+
         .Build();
 
     RuleGroup? _ruleGroup;
