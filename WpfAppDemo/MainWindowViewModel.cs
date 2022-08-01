@@ -42,6 +42,8 @@ public class MainWindowViewModel : ViewModelBase
                 .Rule("Must contain letter.", PasswordLetterFilter)
                 .Rule("Must be capitalized.length", PasswordCapsFilter)
                 .Rule("Must contain symbol.", PasswordSymbolFilter)
+
+            .RulesFor("reset",string.Empty)
         .Build();
 
     RuleGroup? _ruleGroup;
@@ -77,5 +79,13 @@ public class MainWindowViewModel : ViewModelBase
             Header = RuleGroup.Header;
             Validator.ValidateFor(Password, _password_PassworBoxValue);
         }
+    }
+
+    internal void Reset()
+    {
+        EmailTextBoxValue = string.Empty;
+        RuleGroup = Validator.GetRulesFor("reset");
+        Header = RuleGroup.Header;
+        Validator.ValidateFor("reset", string.Empty);
     }
 }

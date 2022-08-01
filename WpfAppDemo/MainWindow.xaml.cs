@@ -19,7 +19,7 @@ public partial class MainWindow : Window
         LoginPasswordBox.Clear();
         LoginEmailTextBox.Clear();
         _ = LoginEmailTextBox.Focus();
-        ((MainWindowViewModel)DataContext).EmailTextBoxValue = string.Empty;
+        ((MainWindowViewModel)DataContext).Reset();
     }
 
     private void LoginEmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
