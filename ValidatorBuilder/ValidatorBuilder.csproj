@@ -27,7 +27,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="extensions .ico" />
+    <Content Include="extensions.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,12 +37,12 @@
     </None>
   </ItemGroup>
 
-	<ItemGroup>
-		<Using Include="System.Collections.ObjectModel" />
-		<Using Include="System.Runtime.Serialization" />
-		<Using Include="System.ComponentModel" />
-		<Using Include="System.Runtime.CompilerServices" />
-		<Using Include="ValidatorBuilder.Core"/>
-	</ItemGroup>
+  <ItemGroup>
+	<Using Include="System.Collections.ObjectModel" />
+	<Using Include="System.Runtime.Serialization" />
+	<Using Include="System.ComponentModel" />
+	<Using Include="System.Runtime.CompilerServices" />
+	<Using Include="ValidatorBuilder.Core" />
+  </ItemGroup>
 
 </Project>

@@ -23,10 +23,10 @@ public sealed class Validator : IValidator
     internal Validator(ObservableCollection<RuleGroup> ruleGroupCollection) => _ruleGroupCollection = ruleGroupCollection;
 
     /// <summary>
-    /// Rules for a given key.
+    /// Represents a collection of validation rules related to a given key.
     /// </summary>
-    /// <param name="key"></param>
-    /// <returns></returns> 
+    /// <param name="key">A string that identifies a collection of validation rules.</param>
+    /// <returns>A <see cref="RuleGroup"/> containing all validation rules associated with a given key.</returns>
     /// <exception cref="KeyNotFoundException"></exception>
     public RuleGroup RulesFor(string? key)
     {
@@ -39,11 +39,11 @@ public sealed class Validator : IValidator
     }
 
     /// <summary>
-    /// 
+    /// Validates a string against all rules associated with a key.
     /// </summary>
-    /// <param name="key"></param>
-    /// <param name="valueToValidade"></param>
-    /// <exception cref="RuleGroupNullException"></exception>
+    /// <param name="key">A string that identifies a collection of validation rules.</param>
+    /// <param name="valueToValidade">A string to be validated.</param>
+    /// <exception cref="RuleGroupNullException">If Rules in RuleGroup is <c>null</c>.</exception>
     public void ValidateFor(string? key, string? valueToValidade)
     {
         RuleGroup ruleGroup = RulesFor(key);
