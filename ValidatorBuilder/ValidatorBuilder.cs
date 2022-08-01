@@ -1,7 +1,7 @@
 ﻿namespace ValidatorBuilder;
 
 /// <summary>
-/// 
+/// Allows build an instance of <see cref="Validator"/> through fluent design.
 /// </summary>
 public class ValidatorBuilder : IRuleStage, IRulesForStage
 {
@@ -11,25 +11,15 @@ public class ValidatorBuilder : IRuleStage, IRulesForStage
     private ValidatorBuilder() { }
 
     /// <summary>
-    /// 
+    /// Creates a new instance of <see cref="ValidatorBuilder"/>.
     /// </summary>
-    /// <returns></returns>
+    /// <returns><see cref="IRulesForStage"/></returns>
     public static IRulesForStage Create() => new ValidatorBuilder();
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
+    /// <inheritdoc/>
     public Validator Build() => new(RuleGroupCollection);
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="description"></param>
-    /// <param name="filter"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
+    /// <inheritdoc/>
     public IRuleStage Rule(string? description, Predicate<string?>? filter)
     {
         RuleGroup? ruleGroup = RuleGroupCollection.FirstOrDefault(x => x.Key == currentKey);
@@ -38,13 +28,7 @@ public class ValidatorBuilder : IRuleStage, IRulesForStage
         return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="key"></param>
-    /// <param name="header"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
+    /// <inheritdoc/>
     public IRuleStage RulesFor(string? key, string? header)
     {
         RuleGroup? ruleGroup = RuleGroupCollection.FirstOrDefault(r => r.Key == key);
