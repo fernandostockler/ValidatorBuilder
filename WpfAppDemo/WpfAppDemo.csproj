@@ -9,11 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="extensions.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ValidatorBuilder\ValidatorBuilder.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="extensions.png" />
+  </ItemGroup>
+
 	<ItemGroup>
-		<Using Include="System.ComponentModel"/>
-		<Using Include ="System.Runtime.CompilerServices"/>
+		<Using Include="System.ComponentModel" />
+		<Using Include="System.Runtime.CompilerServices" />
 	</ItemGroup>
 </Project>
