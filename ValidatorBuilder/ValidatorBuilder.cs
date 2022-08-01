@@ -6,7 +6,7 @@
 public class ValidatorBuilder : IRuleStage, IRulesForStage
 {
     private string? currentKey;
-    private readonly ObservableCollection<RuleGroup> _ruleGroup = new();
+    private readonly ObservableCollection<RuleGroup> RuleGroupCollection = new();
 
     private ValidatorBuilder() { }
 
@@ -21,7 +21,7 @@ public class ValidatorBuilder : IRuleStage, IRulesForStage
     /// </summary>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public Validator Build() => new(_ruleGroup);
+    public Validator Build() => new(RuleGroupCollection);
 
     /// <summary>
     /// 
@@ -32,7 +32,7 @@ public class ValidatorBuilder : IRuleStage, IRulesForStage
     /// <exception cref="NotImplementedException"></exception>
     public IRuleStage Rule(string? description, Predicate<string?>? filter)
     {
-        RuleGroup? ruleGroup = _ruleGroup.FirstOrDefault(x => x.Key == currentKey);
+        RuleGroup? ruleGroup = RuleGroupCollection.FirstOrDefault(x => x.Key == currentKey);
         ruleGroup?.Rules?.Add(new Rule(description, filter));
 
         return this;
@@ -47,8 +47,8 @@ public class ValidatorBuilder : IRuleStage, IRulesForStage
     /// <exception cref="NotImplementedException"></exception>
     public IRuleStage RulesFor(string? key, string? header)
     {
-        RuleGroup? ruleGroup = _ruleGroup.FirstOrDefault(r => r.Key == key);
-        _ruleGroup.Add(new(key, header));
+        RuleGroup? ruleGroup = RuleGroupCollection.FirstOrDefault(r => r.Key == key);
+        RuleGroupCollection.Add(new(key, header));
         currentKey = key;
 
         return this;
