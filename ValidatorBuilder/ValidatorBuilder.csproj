@@ -7,7 +7,7 @@
 	<Authors>Fernando Stockler de Lima</Authors>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<IncludeSymbols>True</IncludeSymbols>
-	<PackageTags>wpf; mvvm; builder; validation; password-validator; visual-hints;</PackageTags>
+	<PackageTags>wpf; mvvm-pattern; builder-design-pattern; validation; password-validator; visual-hints;</PackageTags>
 	<Copyright>Fernando Stockler de Lima</Copyright>
 	<Description>ValidatorBuilder constructs a validator object that can be used in a viewmodel to control input via events, such as TextBox.TextChangedEvent, and display compliance with validation rules on every keystroke. Example: checking password rules.</Description>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -16,6 +16,8 @@
 	<ApplicationIcon>extensions .ico</ApplicationIcon>
 	<PackageIcon>extensions.png</PackageIcon>
 	<RepositoryUrl>https://github.com/fernandostockler/ValidatorBuilder</RepositoryUrl>
+	<PackageProjectUrl>https://fernandostockler.github.io/ValidatorBuilder/</PackageProjectUrl>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -32,6 +34,10 @@
 
   <ItemGroup>
     <None Include="..\..\..\..\OneDrive\Desktop\extensions.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
