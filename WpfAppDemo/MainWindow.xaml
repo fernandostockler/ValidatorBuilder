@@ -6,9 +6,9 @@
     xmlns:local="clr-namespace:WpfAppDemo"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="ValidatorBuilder Demo"
-    Width="800"
+    Width="600"
     Height="500"
-    Background="#FFC29349"
+    Background="#FFACC330"
     Icon="/extensions.png"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -49,15 +49,17 @@
                     Opacity="0.6"
                     ShadowDepth="5" />
             </StackPanel.Effect>
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock
                     Margin="0,0,10,0"
                     FontFamily="Segoe MDL2 Assets"
                     FontSize="48"
-                    Foreground="#FF0F0F0F"
+                    Foreground="#FF0300FF"
                     Text="&#xEF58;" />
                 <TextBlock
                     Margin="0,0,0,20"
+                    FontFamily="Candara Light"
                     FontSize="30"
                     Foreground="#FF0F0F0F"
                     Text="Login" />
@@ -66,8 +68,9 @@
             <TextBlock
                 Margin="0,15,0,0"
                 Padding="0,0,0,4"
+                FontSize="11"
                 FontWeight="Bold"
-                Foreground="#FF0F0F0F"
+                Foreground="#FF0300FF"
                 Text="Email : " />
 
             <TextBox
@@ -84,8 +87,9 @@
             <TextBlock
                 Margin="0,20,0,0"
                 Padding="0,0,0,4"
+                FontSize="11"
                 FontWeight="Bold"
-                Foreground="#FF0F0F0F"
+                Foreground="#FF0300FF"
                 Text="Password : " />
 
             <PasswordBox

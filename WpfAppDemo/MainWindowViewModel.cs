@@ -5,7 +5,7 @@ using ValidatorBuilder;
 using ValidatorBuilder.Core;
 
 public class MainWindowViewModel : ViewModelBase
-{ 
+{
     private const string Email = "Email";
 
     private const int EmailMinLength = 7;
@@ -56,7 +56,9 @@ public class MainWindowViewModel : ViewModelBase
         set
         {
             _ = SetProperty(ref _emailTextBoxValue, value);
-            (RuleGroup, Header) = (Validator.GetRulesFor(Email), RuleGroup.Header);
+
+            RuleGroup = Validator.GetRulesFor(Email);
+            Header = RuleGroup.Header;
             Validator.ValidateFor(Email, _emailTextBoxValue);
         }
     }
@@ -70,7 +72,9 @@ public class MainWindowViewModel : ViewModelBase
         set
         {
             _ = SetProperty(ref _passwordBoxValue, value);
-            (RuleGroup, Header) = (Validator.GetRulesFor(Password), RuleGroup.Header);
+
+            RuleGroup = Validator.GetRulesFor(Password);
+            Header = RuleGroup.Header;
             Validator.ValidateFor(Password, _passwordBoxValue);
         }
     }
@@ -78,7 +82,8 @@ public class MainWindowViewModel : ViewModelBase
     public void Reset()
     {
         EmailTextBoxValue = string.Empty;
-        (RuleGroup, Header) = (Validator.GetRulesFor(reset), RuleGroup.Header);
+        RuleGroup = Validator.GetRulesFor(reset);
+        Header = RuleGroup.Header;
         Validator.ValidateFor(reset, string.Empty);
     }
 }
