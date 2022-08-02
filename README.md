@@ -23,10 +23,10 @@ private readonly Validator Validator = ValidatorBuilder
         .RulesFor(Password, "Password requirements:")
             .Rule($"Must be at least {PassMinLength} characters.", x => x?.Length >= PassMinLength)
             .Rule($"Must be at most {PassMaxLength} characters.", x => x?.Length <= PassMaxLength)
-            .Rule("Must contain number.", x => x is not null && x.ToCharArray().Any(c => char.IsNumber(c)))
-            .Rule("Must contain letter.", x => x is not null && x.ToCharArray().Any(c => char.IsLetter(c)))
-            .Rule("Must be capitalized.length", x => x is not null && x.ToCharArray().Any(c => char.IsUpper(c)))
-            .Rule("Must contain symbol.", x => x is not null && x.IndexOfAny(new[] { '!', '@', '#', '%', '&', '*', '?' }) > -1)
+            .Rule("Must contain a number.", x => x is not null && x.ToCharArray().Any(c => char.IsNumber(c)))
+            .Rule("Must contain a letter.", x => x is not null && x.ToCharArray().Any(c => char.IsLetter(c)))
+            .Rule("Must contain a capital letter", x => x is not null && x.ToCharArray().Any(c => char.IsUpper(c)))
+            .Rule("Must contain a symbol.", x => x is not null && x.IndexOfAny(new[] { '!', '@', '#', '%', '&', '*', '?' }) > -1)
 
         .RulesFor(reset, string.Empty)
     .Build();
@@ -128,4 +128,4 @@ private void LoginPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
 <br/>
 Validation rules are executed with each keystroke and the validator displays whether the rule was met or not.
 
-![ValidatorScreenPassword](https://user-images.githubusercontent.com/10555640/182268331-617eafa5-63d5-4e25-9478-db32a99da00c.png)
+![ValidatorScreenPassword](https://user-images.githubusercontent.com/10555640/182276264-5e655630-4f5b-4bc2-ba6e-3775dfc6bfc2.png)
